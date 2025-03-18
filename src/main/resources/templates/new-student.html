@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        Student Management System
+    </header>
+
+    <!-- Marquee -->
+    <marquee>Welcome to the Student Management System. Manage students with ease!</marquee>
+
+    <div class="container">
+        <h1>Add Student</h1>
+        <form th:action="@{/students/save}" method="post" th:object="${student}">
+            <label for="name">Name: </label>
+            <input type="text" id="name" th:field="*{name}" placeholder="Enter student name" />
+            <span th:errors="*{name}" style="color:red;"></span>
+
+            <label for="email">Email: </label>
+            <input type="email" id="email" th:field="*{email}" placeholder="Enter student email" />
+            <span th:errors="*{email}" style="color:red;"></span>
+
+            <label for="age">Age: </label>
+            <input type="number" id="age" th:field="*{age}" placeholder="Enter student age" />
+            <span th:errors="*{age}" style="color:red;"></span>
+
+            <button type="submit">Save</button>
+        </form>
+
+        <a href="/students" class="back">Back to List</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Student Management System | Developed by Premsingh Padya
+    </footer>
+
+</body>
+</html>
